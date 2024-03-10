@@ -45,7 +45,7 @@ export default function Home() {
               Tu cadena de suministros descentralizada y segura
             </p>
             <div className='flex items-center self-start mt-2 lg:self-center'>
-              <Link href="login" target={"_blank"} className='flex items-center bg-primary text-light p-2.5 px-8 rounded-lg text-lg font-semibold hover:bg-thirty hover:text-light border-0 border-solid border-transparent hover:border-dark'>
+              <Link href="/login" target={"_blank"} className='flex items-center bg-primary text-light p-2.5 px-8 rounded-lg text-lg font-semibold hover:bg-thirty hover:text-light border-0 border-solid border-transparent hover:border-dark'>
                 Go to Dapp
               </Link>
             </div>
