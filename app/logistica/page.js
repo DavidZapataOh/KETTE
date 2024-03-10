@@ -2,12 +2,17 @@
 import Image from "next/image";
 import Link from 'next/link'
 import login from "../../public/images/login.jpg"
-
+import { Navbar } from "../navbar";
 
 export default function Logistica() {
     return (
-      <div className='flex min-h-screen text-dark'>
-        <h1>HOLA MUNDO</h1>
-      </div>
+      <>
+        <Navbar />
+        <div className='container mx-auto px-4 py-16'>
+            <h1 className='text-4xl font-bold text-center text-gray-900 mb-8'>
+                Negocios en los que estás inscrito
+            </h1>
+        </div>
+      </>
     );
-  }
+}

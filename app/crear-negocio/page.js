@@ -24,10 +24,7 @@ export default function CrearNegocio() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí integrarías la lógica para activar el contrato inteligente con los datos del formulario
         console.log(formState);
-        // Simulación de activación del contrato y redirección
-        // router.push('/ruta-a-la-que-redirigir-después-de-crear');
     };
 
     return (
