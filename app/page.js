@@ -1,113 +1,145 @@
+"use client";
 import Image from "next/image";
+import {motion} from 'framer-motion';
+import Link from 'next/link'
+import right from "../public/images/Right-removebg.png"
+
+import agricultura from "../public/images/agricultura.png"
+import farmaceutica from "../public/images/farmaceutica.png"
+import textil from "../public/images/textil.png"
+import electronica from "../public/images/electrodomesticos.png"
+import automocion from "../public/images/locomocion.png"
+import cosmeticos from "../public/images/cosmetico.png"
+import joyas from "../public/images/joyas.png"
+import manufactura from "../public/images/manufactura.png"
+
+import Layout from "./Lay";
+import AnimatedText from "./AnimatedText";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import SwiperCore, { Navigation } from 'swiper';
+
+SwiperCore.use([Navigation]);
+
 
 export default function Home() {
+  
+  const sectors = [
+    { name: 'Agricultura y Alimentación', icon: '/images/agricultura.png' },
+    { name: 'Farmacéutica', icon: '/images/farmaceutica.png' },
+    { name: 'Moda y Textil', icon: '/images/textil.png' },
+    { name: 'Electrónica', icon: '/images/electrodomesticos.png' },
+    { name: 'Automoción', icon: '/images/locomocion.png' },
+    { name: 'Cosméticos', icon: '/images/cosmetico.png' },
+    { name: 'Bienes de Lujo', icon: '/images/joyas.png' },
+    { name: 'Manufactura', icon: '/images/manufactura.png' },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className='text-light w-full min-h-screen bg-light'>
+      <Layout className='pt-0 inset-0 bg-gradient-to-t from-dark to-primary md:pt-16 sm:pt-8'>
+        <div className='flex items-center justify-between w-full lg:flex-col'>
+          <div className='w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center'>
+            <AnimatedText text="CONECTANDO EL MUNDO, BLOQUE A BLOQUE" className='!text-6xl !text-left xl:!text-4xl 2xl:!text-7xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl' />
+            <p className='my-4 font-medium !text-xl md:text-sm sm:text-xs text-left'>
+              Tu cadena de suministros descentralizada y segura
+            </p>
+            <div className='flex items-center self-start mt-2 lg:self-center'>
+              <Link href="login" target={"_blank"} className='flex items-center bg-primary text-light p-2.5 px-8 rounded-lg text-lg font-semibold hover:bg-thirty hover:text-light border-0 border-solid border-transparent hover:border-dark'>
+                Go to Dapp
+              </Link>
+            </div>
+          </div>
+          <motion.div className='w-1/2 md:w-full' whileHover={{y:-10, scale:1.01}}>
+            <Image src={right} alt="Kette" className="w-full h-auto lg:hidden md:inline-block md:w-full" />
+          </motion.div>
         </div>
-      </div>
+      </Layout>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Layout className="py-16 bg-light py-22">
+        <div className='flex flex-col items-center justify-center text-center'>
+          <h2 className="text-3xl font-bold text-center mb-12 text-dark">Maximiza el Potencial de tu Cadena de Suministro</h2>
+          <div className='grid grid-cols-3 md:grid-cols-1 lg:grid-cols-2 gap-12'>
+            {[
+              { title: 'Seguridad Mejorada', icon: '🔒', description: 'Garantiza la integridad de los datos con la inmutabilidad de la blockchain.' },
+              { title: 'Eficiencia Operativa', icon: '📦', description: 'Reduce costes y tiempos con procesos automatizados y transparentes.' },
+              { title: 'Transparencia Completa', icon: '⚡', description: 'Acceso en tiempo real a la información de la cadena de suministro.' },
+              { title: 'Rastreabilidad de Extremo a Extremo', icon: '🔍', description: 'Visualiza el recorrido completo de los productos en la cadena.' },
+              { title: 'Integración Fácil', icon: '🚀', description: 'Conecta sin esfuerzo con sistemas existentes y externos.' },
+              { title: 'Adaptabilidad e Innovación', icon: '🌱', description: 'Adáptate rápidamente a los cambios del mercado y a las nuevas tecnologías.' },
+            ].map((advantage, index) => (
+              <div key={index} className='flex flex-col items-center p-6 bg-primary rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300'>
+                <div className='text-4xl mb-4'>{advantage.icon}</div>
+                <h3 className='text-xl font-semibold text-thirty mb-2'>{advantage.title}</h3>
+                <p className='text-light text-sm text-center'>{advantage.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Layout>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <Layout className="py-16 bg-light">
+        <div className='max-w-6xl mx-auto px-4'>
+          <h2 className="text-3xl font-bold text-center mb-12 text-dark">Sectores que Impactamos</h2>
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            navigation={true}
+            className="mySwiper"
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            {sectors.map((sector, index) => (
+              <SwiperSlide key={index} className="flex flex-col items-center p-6 bg-light border-primary border-4 rounded-lg shadow-lg" style={{ height: '300px', width: '300px' }}>
+                <div className="h-3/5 w-full flex items-center justify-center">
+                  <img src={sector.icon} alt={sector.name} className="w-32 h-32" /> 
+                </div>
+                <div className="h-2/5 w-full">
+                  <h3 className="text-xl font-semibold text-primary text-center mt-2">{sector.name}</h3>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </Layout>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <footer className='w-full bg-primary border-t border-solid border-gray-700 text-light'>
+        <Layout className='py-8 bg-primary' >
+            <div className='flex md:flex-col flex-row items-center justify-between md:space-y-4 space-y-0'>
+                <div className='md:text-center text-left'>
+                    <span className='block mb-2'>{new Date().getFullYear()} &copy; KETTE. Todos los derechos reservados.</span>
+                    <span className='text-sm text-gray-400'>Empowering Supply Chains.</span>
+                </div>
+                <div className='flex space-x-4'>
+                    <Link href="/privacy-policy">Politica de privacidad</Link>
+                    <Link href="/terms">Terminos y condiciones</Link>
+                </div>
+                <div className='flex space-x-4'>
+                    <Link href="https://discord.com/" target={"_blank"} aria-label="Entra a nuestro Discord">
+                      <Image src={agricultura} alt="Discord Logo" className='h-6 w-6'/>
+                    </Link>
+                    <Link href="https://twitter.com/" target={"_blank"} aria-label="Siguenos en Twitter">
+                      <Image src={agricultura} alt="Instagram Logo" className='h-6 w-6'/>
+                    </Link>
+                    <Link href="https://www.linkedin.com/company/" target={"_blank"} aria-label="Conectate en LinkedIn">
+                      <Image src={agricultura} alt="Instagram Logo" className='h-6 w-6'/>
+                    </Link>
+                    <Link href="https://www.instagram.com/" target={"_blank"} aria-label="Siguenos en Instagram">
+                      <Image src={agricultura} alt="Instagram Logo" className='h-6 w-6'/>
+                    </Link>
+                </div>
+            </div>
+        </Layout>
+    </footer>
     </main>
   );
 }
