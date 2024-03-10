@@ -28,9 +28,6 @@ export default function Login() {
             <Link href="/logistica" className='bg-primary hover:bg-thirty hover:text-dark text-white font-bold py-2 px-4 rounded'>
                 Ingresar como Logística
             </Link>
-            <Link href="/registro" className='bg-primary hover:bg-thirty hover:text-dark text-white font-bold py-2 px-4 rounded'>
-                Registrarme
-            </Link>
           </div>
         </div>
       </div>

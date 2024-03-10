@@ -23,7 +23,7 @@ export default function CrearNegocio() {
         setFormState(prevState => ({ ...prevState, [name]: value }));
     };
 
-    const contractABI = [...];
+    const contractABI = "[...]";
     const contractAddress = "0x..."; 
 
     const handleSubmit = async (e) => {
