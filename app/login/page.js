@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from 'next/link'
 import login from "../../public/images/login.jpg"
+import {signIn, useSession} from 'next-auth/react'
 
 
 export default function Login() {
+  const {data: session} = useSession();
     return (
       <div className='flex min-h-screen text-white'>
         <div className='flex-1 relative w-2/3'>
@@ -17,7 +19,11 @@ export default function Login() {
           </p>
           <div className='flex flex-col space-y-4'>
             <Link href="/negocio" className='bg-primary hover:bg-thirty hover:text-dark text-white font-bold py-2 px-4 rounded'>
-                Ingresar como Negocio
+                <button
+            onClick={() => signIn('google', { callbackUrl: `${window.location.origin}/negocio` })}
+          >
+            Ingresar como Negocio
+          </button>
             </Link>
             <Link href="/logistica" className='bg-primary hover:bg-thirty hover:text-dark text-white font-bold py-2 px-4 rounded'>
                 Ingresar como Logística
