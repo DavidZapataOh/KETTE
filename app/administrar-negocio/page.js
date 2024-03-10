@@ -32,7 +32,6 @@ export default function AdministrarNegocio() {
                     </div>
                 </div>
             </Layout>
-            
         </>
         
     );

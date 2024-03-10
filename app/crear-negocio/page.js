@@ -6,6 +6,7 @@ import { Navbar } from "../navbar";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Layout from "../Lay";
+import { ethers } from 'ethers';
 
 export default function CrearNegocio() {
     const [formState, setFormState] = useState({
@@ -22,9 +23,29 @@ export default function CrearNegocio() {
         setFormState(prevState => ({ ...prevState, [name]: value }));
     };
 
+    const contractABI = [...];
+    const contractAddress = "0x..."; 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formState);
+    
+        try {
+            const provider = new ethers.providers.JsonRpcProvider('http://127.0.0.1:9650/ext/bc/unNodNXoYKfCBD6pwjdEVfrcpDZKhDTcXr4NmrnSVNZSPQVP8/rpc');
+    
+            // Configura el wallet/signer
+            const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+    
+            // Conéctate al contrato
+            const contrato = new ethers.Contract(contractAddress, contractABI, signer);
+    
+            const tx = await contrato.deployNewProductTracking(formState.nombre, formState.sector, formState.localidad, formState.descripcion);
+            await tx.wait(); 
+    
+            console.log("Transacción completada:", tx.hash);
+        } catch (error) {
+            console.error("Error al enviar la transacción:", error);
+        }
     };
 
     return (
@@ -42,7 +63,6 @@ export default function CrearNegocio() {
                     </button>
                 </form>
             </div>
-        </Layout>
-        
+        </Layout>     
     );
 }
